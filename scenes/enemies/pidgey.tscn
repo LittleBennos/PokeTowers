@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpidgey_enemy"]
+
+[ext_resource type="Script" path="res://scripts/enemies/pidgey.gd" id="1_pidgey"]
+[ext_resource type="Texture2D" uid="uid://dj1wmmp3a37bc" path="res://assets/sprites/pidgey.png" id="2_sprite"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 12.0
+
+[node name="Pidgey" type="PathFollow2D"]
+script = ExtResource("1_pidgey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_sprite")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_body")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -18.0
+value = 100.0
+show_percentage = false
