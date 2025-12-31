@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Burned Tower"
+description = "The charred remains of a tower where legendary beasts slumber"
+difficulty = 3
+path_points = PackedVector2Array(440, 50, 440, 200, 250, 200, 250, 400, 450, 400, 450, 250, 650, 250, 650, 500, 400, 500, 400, 700)
+zones = PackedVector2Array(380, 100, 500, 100, 300, 150, 200, 250, 200, 350, 300, 450, 400, 350, 500, 300, 600, 200, 700, 300, 700, 450, 500, 550, 350, 650)
+zone_size = 40
+waves_count = 10

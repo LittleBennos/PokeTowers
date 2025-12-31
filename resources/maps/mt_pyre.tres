@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Mt. Pyre"
+description = "A sacred mountain cemetery where Ghost Pokemon rest"
+difficulty = 3
+path_points = PackedVector2Array(440, 700, 440, 500, 250, 500, 250, 300, 450, 300, 450, 100, 650, 100, 650, 400, 830, 400)
+zones = PackedVector2Array(380, 600, 500, 600, 300, 450, 200, 450, 200, 350, 300, 250, 400, 250, 400, 150, 550, 50, 600, 150, 700, 200, 700, 350, 780, 450)
+zone_size = 40
+waves_count = 12

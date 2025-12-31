@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Pokemon Tower"
+description = "A haunted tower in Lavender Town where Ghost types dwell"
+difficulty = 3
+path_points = PackedVector2Array(440, 700, 440, 550, 300, 550, 300, 400, 500, 400, 500, 250, 350, 250, 350, 100, 600, 100, 600, 300, 750, 300, 750, 500, 600, 500, 600, 700)
+zones = PackedVector2Array(380, 600, 500, 600, 250, 500, 250, 450, 400, 350, 550, 350, 550, 300, 400, 200, 400, 150, 500, 150, 650, 150, 650, 250, 700, 350, 700, 450, 650, 550, 550, 650)
+zone_size = 40
+waves_count = 12

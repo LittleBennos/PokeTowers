@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Vast Poni Canyon"
+description = "The final trial before challenging the Pokemon League"
+difficulty = 5
+path_points = PackedVector2Array(50, 650, 150, 650, 150, 450, 350, 450, 350, 250, 200, 250, 200, 100, 500, 100, 500, 300, 700, 300, 700, 500, 550, 500, 550, 650, 830, 650)
+zones = PackedVector2Array(80, 600, 80, 500, 200, 400, 300, 400, 400, 300, 250, 200, 300, 50, 450, 50, 550, 150, 550, 250, 650, 250, 750, 400, 650, 450, 600, 550, 700, 600, 780, 700)
+zone_size = 40
+waves_count = 15

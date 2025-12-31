@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Petalburg Woods"
+description = "A dense forest filled with Bug Pokemon and Team Aqua grunts"
+difficulty = 1
+path_points = PackedVector2Array(50, 200, 200, 200, 200, 450, 400, 450, 400, 250, 600, 250, 600, 500, 830, 500)
+zones = PackedVector2Array(100, 150, 100, 250, 150, 350, 250, 400, 300, 500, 350, 350, 450, 300, 500, 200, 550, 200, 550, 350, 650, 400, 700, 550, 780, 550)
+zone_size = 40
+waves_count = 8

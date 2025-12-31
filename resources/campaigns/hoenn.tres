@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CampaignData" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/campaign_data.gd" id="1_script"]
+[ext_resource type="Resource" path="res://resources/maps/route_101.tres" id="2_map"]
+[ext_resource type="Resource" path="res://resources/maps/petalburg_woods.tres" id="3_map"]
+[ext_resource type="Resource" path="res://resources/maps/granite_cave.tres" id="4_map"]
+[ext_resource type="Resource" path="res://resources/maps/route_113.tres" id="5_map"]
+[ext_resource type="Resource" path="res://resources/maps/mt_pyre.tres" id="6_map"]
+[ext_resource type="Resource" path="res://resources/maps/seafloor_cavern.tres" id="7_map"]
+[ext_resource type="Resource" path="res://resources/maps/sky_pillar.tres" id="8_map"]
+
+[resource]
+script = ExtResource("1_script")
+region_id = "hoenn"
+region_name = "Hoenn"
+generation = 3
+description = "The tropical region from Ruby, Sapphire & Emerald"
+maps = [ExtResource("2_map"), ExtResource("3_map"), ExtResource("4_map"), ExtResource("5_map"), ExtResource("6_map"), ExtResource("7_map"), ExtResource("8_map")]

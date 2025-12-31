@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Rock Tunnel"
+description = "A pitch-black cave requiring Flash to navigate"
+difficulty = 3
+path_points = PackedVector2Array(50, 200, 200, 200, 200, 400, 350, 400, 350, 150, 500, 150, 500, 350, 650, 350, 650, 550, 830, 550)
+zones = PackedVector2Array(100, 150, 100, 250, 150, 350, 250, 350, 250, 450, 300, 200, 400, 100, 450, 100, 450, 200, 550, 250, 550, 400, 600, 400, 700, 300, 700, 500, 750, 600, 800, 600)
+zone_size = 40
+waves_count = 12

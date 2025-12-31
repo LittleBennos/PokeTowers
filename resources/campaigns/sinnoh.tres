@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CampaignData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/campaign_data.gd" id="1_script"]
+[ext_resource type="Resource" path="res://resources/maps/route_201.tres" id="2_map"]
+[ext_resource type="Resource" path="res://resources/maps/eterna_forest.tres" id="3_map"]
+[ext_resource type="Resource" path="res://resources/maps/mt_coronet.tres" id="4_map"]
+[ext_resource type="Resource" path="res://resources/maps/iron_island.tres" id="5_map"]
+[ext_resource type="Resource" path="res://resources/maps/snowpoint_temple.tres" id="6_map"]
+[ext_resource type="Resource" path="res://resources/maps/distortion_world.tres" id="7_map"]
+
+[resource]
+script = ExtResource("1_script")
+region_id = "sinnoh"
+region_name = "Sinnoh"
+generation = 4
+description = "The northern region from Diamond, Pearl & Platinum"
+maps = [ExtResource("2_map"), ExtResource("3_map"), ExtResource("4_map"), ExtResource("5_map"), ExtResource("6_map"), ExtResource("7_map")]

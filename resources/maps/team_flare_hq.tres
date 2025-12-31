@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Team Flare HQ"
+description = "The secret laboratory beneath Geosenge Town"
+difficulty = 5
+path_points = PackedVector2Array(50, 600, 200, 600, 200, 400, 400, 400, 400, 200, 250, 200, 250, 100, 550, 100, 550, 350, 700, 350, 700, 550, 830, 550)
+zones = PackedVector2Array(100, 550, 100, 650, 150, 450, 250, 350, 350, 350, 350, 250, 200, 150, 300, 50, 450, 50, 500, 150, 500, 300, 600, 400, 650, 300, 750, 400, 750, 500, 780, 600)
+zone_size = 40
+waves_count = 15

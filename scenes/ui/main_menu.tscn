@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmainmenu"]
+[gd_scene load_steps=5 format=3 uid="uid://cmainmenu"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/sprites/pikachu.png" id="2_pikachu"]
 [ext_resource type="Texture2D" path="res://icon.svg" id="3_pokeball"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 52
+font_color = Color(1, 0.85, 0.2, 1)
+outline_size = 6
+outline_color = Color(0.1, 0.2, 0.5, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(3, 3)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,78 +29,240 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12, 0.12, 0.18, 1)
+color = Color(0.475, 0.788, 0.98, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+[node name="TopSpacer" type="Control" parent="Content"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme_override_constants/separation = 20
 
-[node name="Pokeball" type="TextureRect" parent="CenterContainer/VBox"]
-custom_minimum_size = Vector2(64, 64)
+[node name="LogoSection" type="VBoxContainer" parent="Content"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="LogoHBox" type="HBoxContainer" parent="Content/LogoSection"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="Pokeball" type="TextureRect" parent="Content/LogoSection/LogoHBox"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
 texture = ExtResource("3_pokeball")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Title" type="Label" parent="CenterContainer/VBox"]
+[node name="Title" type="Label" parent="Content/LogoSection/LogoHBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
-theme_override_font_sizes/font_size = 48
+label_settings = SubResource("LabelSettings_title")
 text = "PokeTowers"
-horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="CenterContainer/VBox"]
+[node name="Subtitle" type="Label" parent="Content/LogoSection"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.8, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.9)
 theme_override_font_sizes/font_size = 16
 text = "Tower Defense"
 horizontal_alignment = 1
 
-[node name="Pikachu" type="TextureRect" parent="CenterContainer/VBox"]
-custom_minimum_size = Vector2(128, 128)
+[node name="MidSpacer" type="Control" parent="Content"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="SlotsSection" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Slot0" type="PanelContainer" parent="Content/SlotsSection"]
+custom_minimum_size = Vector2(200, 240)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Content/SlotsSection/Slot0"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="Content/SlotsSection/Slot0/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot 1"
+horizontal_alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="Content/SlotsSection/Slot0/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("2_pikachu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Spacer" type="Control" parent="CenterContainer/VBox"]
+[node name="StarterLabel" type="Label" parent="Content/SlotsSection/Slot0/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Empty"
+horizontal_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="Content/SlotsSection/Slot0/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "New Game"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Content/SlotsSection/Slot0/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayBtn" type="Button" parent="Content/SlotsSection/Slot0/VBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Play"
+
+[node name="DeleteBtn" type="Button" parent="Content/SlotsSection/Slot0/VBox"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "Delete"
+
+[node name="Slot1" type="PanelContainer" parent="Content/SlotsSection"]
+custom_minimum_size = Vector2(200, 240)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Content/SlotsSection/Slot1"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="Content/SlotsSection/Slot1/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot 2"
+horizontal_alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="Content/SlotsSection/Slot1/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_pikachu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StarterLabel" type="Label" parent="Content/SlotsSection/Slot1/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Empty"
+horizontal_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="Content/SlotsSection/Slot1/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "New Game"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Content/SlotsSection/Slot1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayBtn" type="Button" parent="Content/SlotsSection/Slot1/VBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Play"
+
+[node name="DeleteBtn" type="Button" parent="Content/SlotsSection/Slot1/VBox"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "Delete"
+
+[node name="Slot2" type="PanelContainer" parent="Content/SlotsSection"]
+custom_minimum_size = Vector2(200, 240)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Content/SlotsSection/Slot2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="Content/SlotsSection/Slot2/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot 3"
+horizontal_alignment = 1
+
+[node name="Sprite" type="TextureRect" parent="Content/SlotsSection/Slot2/VBox"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_pikachu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StarterLabel" type="Label" parent="Content/SlotsSection/Slot2/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Empty"
+horizontal_alignment = 1
+
+[node name="DetailsLabel" type="Label" parent="Content/SlotsSection/Slot2/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "New Game"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Content/SlotsSection/Slot2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayBtn" type="Button" parent="Content/SlotsSection/Slot2/VBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Play"
+
+[node name="DeleteBtn" type="Button" parent="Content/SlotsSection/Slot2/VBox"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "Delete"
+
+[node name="ButtonsSpacer" type="Control" parent="Content"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="PlayBtn" type="Button" parent="CenterContainer/VBox"]
-custom_minimum_size = Vector2(200, 50)
+[node name="ButtonsSection" type="HBoxContainer" parent="Content"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "PLAY"
+theme_override_constants/separation = 15
 
-[node name="MapEditorBtn" type="Button" parent="CenterContainer/VBox"]
-custom_minimum_size = Vector2(200, 50)
+[node name="ImportBtn" type="Button" parent="Content/ButtonsSection"]
+custom_minimum_size = Vector2(100, 36)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "MAP EDITOR"
+text = "Import"
 
-[node name="QuitBtn" type="Button" parent="CenterContainer/VBox"]
-custom_minimum_size = Vector2(200, 50)
+[node name="ExportBtn" type="Button" parent="Content/ButtonsSection"]
+custom_minimum_size = Vector2(100, 36)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "QUIT"
+text = "Export"
 
-[connection signal="pressed" from="CenterContainer/VBox/PlayBtn" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CenterContainer/VBox/MapEditorBtn" to="." method="_on_map_editor_pressed"]
-[connection signal="pressed" from="CenterContainer/VBox/QuitBtn" to="." method="_on_quit_pressed"]
+[node name="MapEditorBtn" type="Button" parent="Content/ButtonsSection"]
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+text = "Map Editor"
+
+[node name="BottomSpacer" type="Control" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]
+title = "Confirm"
+initial_position = 1
+size = Vector2i(300, 100)
+
+[connection signal="pressed" from="Content/ButtonsSection/ImportBtn" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="Content/ButtonsSection/ExportBtn" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="Content/ButtonsSection/MapEditorBtn" to="." method="_on_map_editor_pressed"]
+[connection signal="confirmed" from="ConfirmDialog" to="." method="_on_confirm_dialog_confirmed"]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CampaignData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/campaign_data.gd" id="1_script"]
+[ext_resource type="Resource" path="res://resources/maps/verdant_cavern.tres" id="2_map"]
+[ext_resource type="Resource" path="res://resources/maps/wela_volcano.tres" id="3_map"]
+[ext_resource type="Resource" path="res://resources/maps/lush_jungle.tres" id="4_map"]
+[ext_resource type="Resource" path="res://resources/maps/mount_hokulani.tres" id="5_map"]
+[ext_resource type="Resource" path="res://resources/maps/vast_poni_canyon.tres" id="6_map"]
+
+[resource]
+script = ExtResource("1_script")
+region_id = "alola"
+region_name = "Alola"
+generation = 7
+description = "The tropical islands from Sun & Moon with Island Trials"
+maps = [ExtResource("2_map"), ExtResource("3_map"), ExtResource("4_map"), ExtResource("5_map"), ExtResource("6_map")]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Mt. Coronet"
+description = "The massive mountain dividing Sinnoh where Dialga and Palkia dwell"
+difficulty = 3
+path_points = PackedVector2Array(50, 600, 200, 600, 200, 400, 350, 400, 350, 200, 550, 200, 550, 450, 700, 450, 700, 250, 830, 250)
+zones = PackedVector2Array(100, 550, 100, 650, 150, 450, 250, 350, 300, 350, 400, 250, 450, 150, 500, 150, 500, 350, 600, 400, 650, 500, 750, 350, 800, 200)
+zone_size = 40
+waves_count = 12

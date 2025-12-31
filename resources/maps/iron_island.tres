@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Iron Island"
+description = "A mining island where Riley trains with his Lucario"
+difficulty = 3
+path_points = PackedVector2Array(50, 300, 200, 300, 200, 500, 400, 500, 400, 250, 600, 250, 600, 450, 750, 450, 750, 300, 830, 300)
+zones = PackedVector2Array(100, 250, 100, 350, 150, 450, 250, 550, 350, 550, 350, 350, 450, 200, 550, 200, 550, 350, 650, 400, 700, 500, 800, 350)
+zone_size = 40
+waves_count = 10

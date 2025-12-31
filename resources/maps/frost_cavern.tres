@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Frost Cavern"
+description = "An icy cave where Team Flare threatens Abomasnow"
+difficulty = 3
+path_points = PackedVector2Array(50, 250, 200, 250, 200, 450, 400, 450, 400, 200, 600, 200, 600, 500, 830, 500)
+zones = PackedVector2Array(100, 200, 100, 300, 150, 400, 250, 500, 350, 500, 350, 300, 450, 150, 550, 150, 550, 350, 650, 450, 700, 550, 780, 550)
+zone_size = 40
+waves_count = 12

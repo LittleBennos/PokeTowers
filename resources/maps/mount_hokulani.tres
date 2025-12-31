@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Mount Hokulani"
+description = "The observatory mountain on Ula'ula Island"
+difficulty = 3
+path_points = PackedVector2Array(50, 600, 200, 600, 200, 350, 400, 350, 400, 550, 600, 550, 600, 200, 750, 200, 750, 400, 830, 400)
+zones = PackedVector2Array(100, 550, 100, 650, 150, 400, 250, 300, 350, 300, 350, 450, 450, 500, 550, 600, 550, 300, 650, 150, 700, 250, 800, 350)
+zone_size = 40
+waves_count = 12

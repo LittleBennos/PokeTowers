@@ -1,36 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmain"]
+[gd_scene load_steps=6 format=3 uid="uid://cmain"]
 
-[ext_resource type="PackedScene" uid="uid://chud" path="res://scenes/ui/hud.tscn" id="1_hud"]
 [ext_resource type="Script" path="res://scripts/wave_manager.gd" id="2_wave"]
 [ext_resource type="Script" path="res://scripts/tower_placement.gd" id="3_placement"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="4_main"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Verdian Forest Background.jpg" id="5_bg"]
-
-[sub_resource type="Curve2D" id="Curve2D_path"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 280, 0, 0, 0, 0, 0, 280, 560, 0, 0, 0, 0, 440, 560, 0, 0, 0, 0, 440, 160, 0, 0, 0, 0, 540, 160, 0, 0, 0, 0, 540, 440, 0, 0, 0, 0, 710, 440, 0, 0, 0, 0, 710, 150, 0, 0, 0, 0, 1000, 150, 0, 0, 0, 0, 1000, 310, 0, 0, 0, 0, 860, 310, 0, 0, 0, 0, 860, 720)
-}
+[ext_resource type="Resource" path="res://resources/maps/verdian_forest.tres" id="5_map"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_placement"]
 size = Vector2(880, 720)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("4_main")
+map_data = ExtResource("5_map")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = 200.0
-offset_right = 1080.0
+offset_right = 880.0
 offset_bottom = 720.0
-texture = ExtResource("5_bg")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="EnemyPath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_path")
 
 [node name="PathLine" type="Line2D" parent="EnemyPath"]
-visible = true
-points = PackedVector2Array(280, 0, 280, 560, 440, 560, 440, 160, 540, 160, 540, 440, 710, 440, 710, 150, 1000, 150, 1000, 310, 860, 310, 860, 720)
+visible = false
 width = 40.0
 default_color = Color(0.6, 0.5, 0.3, 0.5)
 
@@ -48,14 +39,13 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerPlacement/PlacementArea"]
-position = Vector2(640, 360)
+position = Vector2(440, 360)
 shape = SubResource("RectangleShape2D_placement")
-metadata/_edit_lock_ = true
 
-[node name="HUD" parent="." instance=ExtResource("1_hud")]
+[node name="PlacementZones" type="Node2D" parent="TowerPlacement"]
 
 [node name="Base" type="Sprite2D" parent="."]
-position = Vector2(860, 700)
+position = Vector2(660, 700)
 scale = Vector2(1.5, 1.5)
 
 [node name="BaseLabel" type="Label" parent="Base"]
@@ -65,12 +55,3 @@ offset_right = 25.0
 offset_bottom = 10.0
 text = "BASE"
 horizontal_alignment = 1
-
-[node name="LocationLabel" type="Label" parent="."]
-offset_left = 210.0
-offset_top = 10.0
-offset_right = 400.0
-offset_bottom = 35.0
-text = "Viridian Forest"
-theme_override_colors/font_color = Color(1, 1, 1, 0.9)
-theme_override_font_sizes/font_size = 16

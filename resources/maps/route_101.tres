@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Route 101"
+description = "The first route from Littleroot Town where you meet your starter"
+difficulty = 1
+path_points = PackedVector2Array(50, 400, 200, 400, 200, 300, 450, 300, 450, 500, 700, 500, 700, 350, 830, 350)
+zones = PackedVector2Array(100, 350, 150, 350, 150, 250, 300, 250, 350, 350, 400, 400, 500, 450, 600, 550, 650, 550, 750, 400)
+zone_size = 40
+waves_count = 8

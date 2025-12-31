@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CampaignData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/campaign_data.gd" id="1_script"]
+[ext_resource type="Resource" path="res://resources/maps/galar_route_1.tres" id="2_map"]
+[ext_resource type="Resource" path="res://resources/maps/wild_area.tres" id="3_map"]
+[ext_resource type="Resource" path="res://resources/maps/galar_mine.tres" id="4_map"]
+[ext_resource type="Resource" path="res://resources/maps/glimwood_tangle.tres" id="5_map"]
+[ext_resource type="Resource" path="res://resources/maps/energy_plant.tres" id="6_map"]
+
+[resource]
+script = ExtResource("1_script")
+region_id = "galar"
+region_name = "Galar"
+generation = 8
+description = "The UK-inspired region from Sword & Shield with Dynamax"
+maps = [ExtResource("2_map"), ExtResource("3_map"), ExtResource("4_map"), ExtResource("5_map"), ExtResource("6_map")]

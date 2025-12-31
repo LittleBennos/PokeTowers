@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Santalune Forest"
+description = "A nostalgic forest reminiscent of Viridian Forest"
+difficulty = 1
+path_points = PackedVector2Array(50, 400, 200, 400, 200, 250, 400, 250, 400, 500, 650, 500, 650, 300, 830, 300)
+zones = PackedVector2Array(100, 350, 100, 450, 150, 300, 250, 200, 350, 200, 350, 350, 450, 450, 550, 550, 600, 550, 600, 400, 700, 250)
+zone_size = 40
+waves_count = 8

@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsbmt5j8x44n0"]
+
+[ext_resource type="Script" path="res://scripts/ui/starter_select.gd" id="1_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 42
+font_color = Color(1, 0.85, 0.2, 1)
+outline_size = 5
+outline_color = Color(0.1, 0.15, 0.25, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(2, 2)
+
+[node name="StarterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.12, 0.18, 1)
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderSection" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Content/HeaderSection"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_title")
+text = "Choose Your Partner"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Content/HeaderSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 15
+text = "Choose carefully, trainer! Your partner joins at Level 5."
+horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="Content"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CardsSection" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Spacer2" type="Control" parent="Content"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="BottomSection" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 20
+
+[node name="BackBtn" type="Button" parent="Content/BottomSection"]
+custom_minimum_size = Vector2(120, 45)
+layout_mode = 2
+text = "< Back"
+
+[node name="StartBtn" type="Button" parent="Content/BottomSection"]
+custom_minimum_size = Vector2(280, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "SELECT A POKEMON"
+
+[connection signal="pressed" from="Content/BottomSection/BackBtn" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Content/BottomSection/StartBtn" to="." method="_on_start_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Route 201"
+description = "The first route from Twinleaf Town to Sandgem Town"
+difficulty = 1
+path_points = PackedVector2Array(50, 350, 250, 350, 250, 200, 500, 200, 500, 450, 700, 450, 700, 300, 830, 300)
+zones = PackedVector2Array(100, 300, 150, 400, 200, 250, 300, 150, 400, 150, 450, 250, 450, 400, 550, 500, 650, 500, 650, 350, 750, 250)
+zone_size = 40
+waves_count = 8

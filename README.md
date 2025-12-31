@@ -1,51 +1,52 @@
 # PokeTowers
 
-Pokemon-themed tower defense game built with Godot 4.5.
+Pokemon-themed tower defense game built with Godot 4.
+
+## Play Locally
+
+1. Install [Godot 4.3+](https://godotengine.org/download)
+2. Clone this repo: `git clone https://github.com/LittleBennos/PokeTowers.git`
+3. Open Godot → Import → Select `project.godot`
+4. Press F5 or click Play
 
 ## Features
 
-- **4 Towers**: Pikachu, Squirtle, Charmander, Bulbasaur with type effectiveness
-- **5 Enemy Types**: Caterpie, Weedle, Pidgey, Metapod, Kakuna
-- **10 Waves** of increasing difficulty
-- **Type System**: Fire > Grass > Water > Fire, Electric > Water, etc.
-- **Map Editor**: Built-in path editor tool
+- **Type-based attacks**: Electric=chain lightning, Fire=AOE, Water=slow, Grass=poison
+- **Save system**: 3 save slots with starter selection
+- **Party system**: Choose pokemon before each map
+- **Catching**: Weaken enemies to catch them
+- **8 Regions**: Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar
 
 ## Controls
 
-- **Click tower** in left panel to select
-- **Click map** to place tower
-- **Right-click** to cancel placement
-- **Start Wave** button to begin
+- Click pokemon in party panel to select
+- Click placement zone to deploy (costs currency)
+- Right-click to cancel
+- Start Wave button to begin
 
 ## Project Structure
 
 ```
+resources/
+  pokemon/       # Species data (stats, types, costs)
+  maps/          # Map definitions
+  campaigns/     # Region data
+
 scenes/
-  main.tscn          # Main game scene
-  ui/
-    main_menu.tscn   # Title screen
-    hud.tscn         # In-game UI
-    map_select.tscn  # Map editor selection
-  tools/
-    path_editor.tscn # Path drawing tool
-  towers/            # Tower scenes
-  enemies/           # Enemy scenes
+  towers/        # Generic tower scene
+  enemies/       # Enemy scenes
+  ui/            # Menu screens
 
 scripts/
-  autoload/
-    game_manager.gd  # Global state
-  towers/            # Tower logic
-  enemies/           # Enemy logic
-  ui/                # UI scripts
-
-assets/
-  sprites/           # Pokemon sprites & backgrounds
-  audio/             # Sound effects (empty)
+  autoload/      # GameManager, SaveManager
+  resources/     # Resource classes
+  towers/        # Tower logic (type-based attacks)
+  enemies/       # Enemy logic
 ```
 
 ## Requirements
 
-- Godot 4.5+
+- Godot 4.3+
 
 ## License
 

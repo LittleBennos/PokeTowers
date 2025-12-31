@@ -1,0 +1,223 @@
+[gd_scene load_steps=3 format=3 uid="uid://csaveselect"]
+
+[ext_resource type="Script" path="res://scripts/ui/save_select.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="2_pokeball"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 42
+font_color = Color(1, 0.85, 0.2, 1)
+outline_size = 5
+outline_color = Color(0.15, 0.25, 0.55, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_offset = Vector2(2, 2)
+
+[node name="SaveSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackgroundFallback" type="ColorRect" parent="Background"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47, 0.79, 0.98, 1)
+
+[node name="Overlay" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="LogoBox" type="VBoxContainer" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Pokeball" type="TextureRect" parent="CenterContainer/VBox/LogoBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_pokeball")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="CenterContainer/VBox/LogoBox"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_title")
+text = "PokeTowers"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/VBox/LogoBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Select Save File"
+horizontal_alignment = 1
+
+[node name="SlotsContainer" type="VBoxContainer" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Slot0" type="PanelContainer" parent="CenterContainer/VBox/SlotsContainer"]
+custom_minimum_size = Vector2(420, 70)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/VBox/SlotsContainer/Slot0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Info" type="VBoxContainer" parent="CenterContainer/VBox/SlotsContainer/Slot0/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="CenterContainer/VBox/SlotsContainer/Slot0/HBox/Info"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot 1 - Empty"
+
+[node name="DetailsLabel" type="Label" parent="CenterContainer/VBox/SlotsContainer/Slot0/HBox/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "New Game"
+
+[node name="PlayBtn" type="Button" parent="CenterContainer/VBox/SlotsContainer/Slot0/HBox"]
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 2
+text = "Play"
+
+[node name="DeleteBtn" type="Button" parent="CenterContainer/VBox/SlotsContainer/Slot0/HBox"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+text = "X"
+
+[node name="Slot1" type="PanelContainer" parent="CenterContainer/VBox/SlotsContainer"]
+custom_minimum_size = Vector2(420, 70)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/VBox/SlotsContainer/Slot1"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Info" type="VBoxContainer" parent="CenterContainer/VBox/SlotsContainer/Slot1/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="CenterContainer/VBox/SlotsContainer/Slot1/HBox/Info"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot 2 - Empty"
+
+[node name="DetailsLabel" type="Label" parent="CenterContainer/VBox/SlotsContainer/Slot1/HBox/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "New Game"
+
+[node name="PlayBtn" type="Button" parent="CenterContainer/VBox/SlotsContainer/Slot1/HBox"]
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 2
+text = "Play"
+
+[node name="DeleteBtn" type="Button" parent="CenterContainer/VBox/SlotsContainer/Slot1/HBox"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+text = "X"
+
+[node name="Slot2" type="PanelContainer" parent="CenterContainer/VBox/SlotsContainer"]
+custom_minimum_size = Vector2(420, 70)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="CenterContainer/VBox/SlotsContainer/Slot2"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Info" type="VBoxContainer" parent="CenterContainer/VBox/SlotsContainer/Slot2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameLabel" type="Label" parent="CenterContainer/VBox/SlotsContainer/Slot2/HBox/Info"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Slot 3 - Empty"
+
+[node name="DetailsLabel" type="Label" parent="CenterContainer/VBox/SlotsContainer/Slot2/HBox/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "New Game"
+
+[node name="PlayBtn" type="Button" parent="CenterContainer/VBox/SlotsContainer/Slot2/HBox"]
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 2
+text = "Play"
+
+[node name="DeleteBtn" type="Button" parent="CenterContainer/VBox/SlotsContainer/Slot2/HBox"]
+custom_minimum_size = Vector2(50, 40)
+layout_mode = 2
+text = "X"
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="CenterContainer/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="ExportBtn" type="Button" parent="CenterContainer/VBox/ButtonsHBox"]
+custom_minimum_size = Vector2(110, 40)
+layout_mode = 2
+text = "Export"
+
+[node name="ImportBtn" type="Button" parent="CenterContainer/VBox/ButtonsHBox"]
+custom_minimum_size = Vector2(110, 40)
+layout_mode = 2
+text = "Import"
+
+[node name="BackBtn" type="Button" parent="CenterContainer/VBox"]
+custom_minimum_size = Vector2(130, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "< Back"
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]
+title = "Confirm"
+initial_position = 1
+size = Vector2i(300, 100)
+
+[connection signal="pressed" from="CenterContainer/VBox/ButtonsHBox/ExportBtn" to="." method="_on_export_pressed"]
+[connection signal="pressed" from="CenterContainer/VBox/ButtonsHBox/ImportBtn" to="." method="_on_import_pressed"]
+[connection signal="pressed" from="CenterContainer/VBox/BackBtn" to="." method="_on_back_pressed"]
+[connection signal="confirmed" from="ConfirmDialog" to="." method="_on_confirm_dialog_confirmed"]

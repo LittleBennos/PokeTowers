@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Union Cave"
+description = "A cave connecting Route 32 to Azalea Town with underground lakes"
+difficulty = 2
+path_points = PackedVector2Array(50, 200, 150, 200, 150, 400, 350, 400, 350, 200, 550, 200, 550, 500, 750, 500, 750, 350, 830, 350)
+zones = PackedVector2Array(100, 150, 100, 250, 200, 350, 200, 450, 300, 450, 400, 250, 450, 250, 500, 150, 600, 300, 600, 450, 700, 550, 800, 400)
+zone_size = 40
+waves_count = 10

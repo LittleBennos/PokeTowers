@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Route 1"
+description = "The first route between Pallet Town and Viridian City"
+difficulty = 1
+path_points = PackedVector2Array(50, 360, 200, 360, 200, 200, 400, 200, 400, 500, 600, 500, 600, 300, 830, 300)
+zones = PackedVector2Array(100, 300, 100, 400, 100, 450, 250, 150, 300, 150, 350, 150, 300, 250, 450, 250, 450, 450, 500, 450, 550, 450, 650, 250, 700, 250, 750, 250, 700, 350, 750, 400)
+zone_size = 40
+waves_count = 8

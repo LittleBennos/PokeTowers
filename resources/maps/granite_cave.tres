@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Granite Cave"
+description = "A rocky cave on Dewford Island where Steven Stone researches stones"
+difficulty = 2
+path_points = PackedVector2Array(50, 550, 200, 550, 200, 300, 400, 300, 400, 500, 550, 500, 550, 150, 750, 150, 750, 400, 830, 400)
+zones = PackedVector2Array(100, 500, 100, 600, 150, 350, 250, 250, 350, 250, 350, 400, 450, 450, 500, 550, 600, 200, 650, 100, 700, 100, 700, 250, 800, 350)
+zone_size = 40
+waves_count = 10

@@ -9,10 +9,10 @@ extends CanvasLayer
 @onready var game_over_label: Label = $GameOverPanel/Label
 
 var tower_data: Dictionary = {
-	"pikachu": { "name": "Pikachu", "cost": 100, "scene": "res://scenes/towers/pikachu.tscn" },
-	"squirtle": { "name": "Squirtle", "cost": 75, "scene": "res://scenes/towers/squirtle.tscn" },
-	"charmander": { "name": "Charmander", "cost": 125, "scene": "res://scenes/towers/charmander.tscn" },
-	"bulbasaur": { "name": "Bulbasaur", "cost": 80, "scene": "res://scenes/towers/bulbasaur.tscn" },
+	"pikachu": { "name": "Pikachu", "cost": 100, "scene": "res://scenes/towers/generic_pokemon.tscn" },
+	"squirtle": { "name": "Squirtle", "cost": 75, "scene": "res://scenes/towers/generic_pokemon.tscn" },
+	"charmander": { "name": "Charmander", "cost": 125, "scene": "res://scenes/towers/generic_pokemon.tscn" },
+	"bulbasaur": { "name": "Bulbasaur", "cost": 80, "scene": "res://scenes/towers/generic_pokemon.tscn" },
 }
 
 func _ready() -> void:

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/map_data.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+map_name = "Route 113"
+description = "The ash-covered route near Mt. Chimney with falling volcanic ash"
+difficulty = 2
+path_points = PackedVector2Array(50, 300, 250, 300, 250, 150, 500, 150, 500, 350, 700, 350, 700, 200, 830, 200)
+zones = PackedVector2Array(100, 250, 150, 250, 200, 350, 300, 100, 400, 100, 450, 200, 450, 300, 550, 400, 650, 400, 650, 300, 750, 250, 800, 150)
+zone_size = 40
+waves_count = 10
