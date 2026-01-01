@@ -30,6 +30,13 @@ class_name PokemonSpecies
 @export_group("Catching")
 @export var catch_rate: float = 0.5  # 0.0-1.0, higher = easier
 
+# Animation
+@export_group("Animation")
+@export var sprite_sheet: Texture2D  # spritesheet with 8 rows, N columns
+@export var frame_size: Vector2i = Vector2i(96, 96)
+@export var frame_columns: int = 4
+@export var anim_fps: float = 8.0
+
 func get_type_name() -> String:
 	match pokemon_type:
 		GameManager.PokemonType.FIRE: return "Fire"

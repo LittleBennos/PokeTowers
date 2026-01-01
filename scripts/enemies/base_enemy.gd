@@ -21,6 +21,7 @@ var poison_timer: float = 0.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hp_bar: ProgressBar = $HPBar
+var animated_sprite: AnimatedSprite2D = null
 
 func _ready() -> void:
 	load_species_data()
@@ -41,8 +42,43 @@ func load_species_data() -> void:
 	reward = species.reward
 	pokemon_type = species.pokemon_type
 	catch_rate = species.catch_rate
-	if species.icon and sprite:
+
+	# Set up sprite - animated if sheet exists, static otherwise
+	if species.sprite_sheet:
+		setup_animated_sprite(species)
+	elif species.icon and sprite:
 		sprite.texture = species.icon
+
+func setup_animated_sprite(species: PokemonSpecies) -> void:
+	if sprite:
+		sprite.visible = false
+
+	animated_sprite = AnimatedSprite2D.new()
+	animated_sprite.sprite_frames = create_sprite_frames(species)
+	animated_sprite.scale = Vector2(0.5, 0.5)  # Match original sprite scale
+	add_child(animated_sprite)
+	animated_sprite.play("idle")
+
+func create_sprite_frames(species: PokemonSpecies) -> SpriteFrames:
+	var frames = SpriteFrames.new()
+	frames.remove_animation("default")
+
+	frames.add_animation("idle")
+	frames.set_animation_speed("idle", species.anim_fps)
+	frames.set_animation_loop("idle", true)
+
+	var sheet = species.sprite_sheet
+	var frame_w = species.frame_size.x
+	var frame_h = species.frame_size.y
+	var cols = species.frame_columns
+
+	for col in cols:
+		var atlas = AtlasTexture.new()
+		atlas.atlas = sheet
+		atlas.region = Rect2(col * frame_w, 0, frame_w, frame_h)
+		frames.add_frame("idle", atlas)
+
+	return frames
 
 func _process(delta: float) -> void:
 	# Movement
@@ -122,10 +158,11 @@ func apply_poison(dps: float, duration: float) -> void:
 	poison_timer = duration
 
 func flash_color(color: Color) -> void:
-	if sprite:
+	var target = animated_sprite if animated_sprite else sprite
+	if target:
 		var tween = create_tween()
-		tween.tween_property(sprite, "modulate", color, 0.1)
-		tween.tween_property(sprite, "modulate", Color.WHITE, 0.1)
+		tween.tween_property(target, "modulate", color, 0.1)
+		tween.tween_property(target, "modulate", Color.WHITE, 0.1)
 
 func update_hp_bar() -> void:
 	if hp_bar:

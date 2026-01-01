@@ -28,6 +28,8 @@ const FLYING_SPEED_MULT: float = 1.3
 var FireProjectileScene = preload("res://scenes/projectiles/fire_projectile.tscn")
 var WaterProjectileScene = preload("res://scenes/projectiles/water_projectile.tscn")
 
+var animated_sprite: AnimatedSprite2D = null
+
 func _ready() -> void:
 	if caught_pokemon:
 		var species = GameManager.get_species(caught_pokemon.species_id)
@@ -37,7 +39,11 @@ func _ready() -> void:
 			attack_range = species.base_range
 			attack_speed = species.base_attack_speed
 			pokemon_type = species.pokemon_type
-			if sprite and species.icon:
+
+			# Set up sprite - animated if sheet exists, static otherwise
+			if species.sprite_sheet:
+				setup_animated_sprite(species)
+			elif sprite and species.icon:
 				sprite.texture = species.icon
 
 			# FLYING type gets range/speed bonus
@@ -46,6 +52,49 @@ func _ready() -> void:
 				attack_speed *= FLYING_SPEED_MULT
 
 	super._ready()
+
+func setup_animated_sprite(species: PokemonSpecies) -> void:
+	# Hide static sprite
+	if sprite:
+		sprite.visible = false
+
+	# Create AnimatedSprite2D
+	animated_sprite = AnimatedSprite2D.new()
+	animated_sprite.sprite_frames = create_sprite_frames(species)
+	add_child(animated_sprite)
+	animated_sprite.play("idle")
+
+func create_sprite_frames(species: PokemonSpecies) -> SpriteFrames:
+	var frames = SpriteFrames.new()
+	frames.remove_animation("default")
+
+	# Create idle animation from row 0
+	frames.add_animation("idle")
+	frames.set_animation_speed("idle", species.anim_fps)
+	frames.set_animation_loop("idle", true)
+
+	var sheet = species.sprite_sheet
+	var frame_w = species.frame_size.x
+	var frame_h = species.frame_size.y
+	var cols = species.frame_columns
+
+	# Add frames from row 0 (idle)
+	for col in cols:
+		var atlas = AtlasTexture.new()
+		atlas.atlas = sheet
+		atlas.region = Rect2(col * frame_w, 0, frame_w, frame_h)
+		frames.add_frame("idle", atlas)
+
+	return frames
+
+func look_at_target() -> void:
+	if target:
+		var direction = (target.global_position - global_position).normalized()
+		var angle = direction.angle()
+		if animated_sprite:
+			animated_sprite.rotation = angle
+		elif sprite:
+			sprite.rotation = angle
 
 func attack(enemy: BaseEnemy) -> void:
 	match pokemon_type:
