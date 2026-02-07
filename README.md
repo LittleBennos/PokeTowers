@@ -44,6 +44,10 @@ scripts/
   enemies/       # Enemy logic
 ```
 
+## Roadmap
+
+See [ROADMAP.md](ROADMAP.md) for the full development roadmap with prioritised enhancements across 7 tiers and an 8-sprint implementation plan.
+
 ## Requirements
 
 - Godot 4.3+
