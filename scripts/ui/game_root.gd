@@ -1,6 +1,7 @@
 extends Control
 
 const TowerCardScene = preload("res://scenes/ui/tower_card.tscn")
+const TutorialOverlayScene = preload("res://scenes/ui/tutorial_overlay.tscn")
 
 @onready var left_panel: PanelContainer = $MainLayout/LeftPanel
 @onready var game_viewport: SubViewportContainer = $MainLayout/GameViewport
@@ -23,6 +24,7 @@ var tower_panel: TowerPanel
 var auto_start_check: CheckBox
 var auto_start_enabled: bool = false
 var zenny_label: Label
+var tutorial: TutorialOverlay = null
 
 func _ready() -> void:
 	GameManager.lives_changed.connect(_on_lives_changed)
@@ -40,6 +42,7 @@ func _ready() -> void:
 	setup_tower_panel()
 	setup_auto_start()
 	setup_zenny_display()
+	_try_start_tutorial()
 
 func _on_wave_completed() -> void:
 	enable_start_button()
@@ -223,3 +226,12 @@ func setup_zenny_display() -> void:
 func _on_zenny_changed(amount: int) -> void:
 	if zenny_label:
 		zenny_label.text = "Z %d" % amount
+
+func _try_start_tutorial() -> void:
+	if TutorialOverlay.is_tutorial_complete():
+		return
+	tutorial = TutorialOverlayScene.instantiate() as TutorialOverlay
+	tutorial.game_root = self
+	add_child(tutorial)
+	# Small delay so the scene is fully loaded before showing tutorial
+	get_tree().create_timer(0.3).timeout.connect(tutorial.start_tutorial)
