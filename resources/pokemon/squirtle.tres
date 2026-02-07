@@ -35,4 +35,5 @@ base_spec_attack = 50
 base_defense = 65
 base_spec_defense = 64
 base_stat_speed = 43
+base_stat_range = 55
 learnset = {1: "tackle", 7: "water_gun", 12: "bite", 24: "hydro_pump"}

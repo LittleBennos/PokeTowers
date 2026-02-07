@@ -200,6 +200,10 @@ func calculate_catch_rate(enemy: Node, ball: BallData) -> float:
 	var max_hp = enemy.max_hp if "max_hp" in enemy else 1.0
 	var enemy_catch_rate = enemy.catch_rate if "catch_rate" in enemy else 0.5
 
+	# Prevent division by zero
+	if max_hp <= 0:
+		max_hp = 1.0
+
 	# HP ratio within catchable zone (0-25% HP)
 	var hp_ratio = hp / (max_hp * 0.25)
 	# Lower HP = better catch rate

@@ -16,8 +16,13 @@ const CARD_SIZE := Vector2(100, 130)
 const ANIM_DURATION := 0.2
 
 func _ready() -> void:
+	# Pre-load existing party members
+	for uuid in GameManager.party:
+		if uuid in GameManager.pokedex:
+			selected.append(uuid)
 	create_dock_slots()
 	populate_collection()
+	refresh_dock_display()
 	update_ui()
 
 # ===== DOCK SLOTS =====
@@ -198,6 +203,10 @@ func create_collection_card(caught: CaughtPokemon, species: PokemonSpecies) -> P
 
 	# Click handler
 	card.gui_input.connect(_on_collection_card_input.bind(caught.uuid))
+
+	# Hide if already in party
+	if caught.uuid in selected:
+		card.visible = false
 
 	return card
 

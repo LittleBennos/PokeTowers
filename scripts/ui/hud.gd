@@ -16,12 +16,12 @@ var tower_data: Dictionary = {
 }
 
 func _ready() -> void:
-	GameManager.currency_changed.connect(_on_currency_changed)
+	GameManager.zenny_changed.connect(_on_currency_changed)
 	GameManager.lives_changed.connect(_on_lives_changed)
 	GameManager.wave_changed.connect(_on_wave_changed)
 	GameManager.game_over.connect(_on_game_over)
 
-	_on_currency_changed(GameManager.currency)
+	_on_currency_changed(GameManager.zenny)
 	_on_lives_changed(GameManager.lives)
 	update_wave_label()
 	game_over_panel.visible = false

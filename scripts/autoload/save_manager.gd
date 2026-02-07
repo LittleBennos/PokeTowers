@@ -127,7 +127,7 @@ func load_slot(slot: int) -> bool:
 	current_slot = slot
 
 	# Re-save with new format if migrated
-	if version == 1:
+	if data.get("_migrated", false):
 		save_game()
 
 	return true
@@ -193,6 +193,7 @@ func migrate_v1_to_v2(data: Dictionary) -> Dictionary:
 	data["party_size_limit"] = 6
 	data["party"] = []  # Party needs to be re-selected
 	data["version"] = 2
+	data["_migrated"] = true
 
 	return data
 

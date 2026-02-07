@@ -215,7 +215,16 @@ func check_evolution() -> void:
 		var old_id = caught_pokemon.species_id
 		caught_pokemon.species_id = species.evolves_to
 		GameManager.pokemon_evolved.emit(old_id, species.evolves_to)
-		# TODO: swap tower scene for evolved form
+
+		# Update tower stats and visuals for evolved form
+		var new_species = GameManager.get_species(species.evolves_to)
+		if new_species:
+			tower_name = new_species.display_name
+			damage = new_species.base_damage
+			attack_range = new_species.base_range
+			attack_speed = new_species.base_attack_speed
+			pokemon_type = new_species.pokemon_type
+			setup_range()
 
 func get_effective_damage() -> float:
 	if caught_pokemon:
