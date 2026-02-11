@@ -8,7 +8,7 @@ A Pokémon-themed tower defense game built with Godot 4. Place Pokémon as tower
 
 ## 🚀 Quick Start
 
-**Want to play right now?** See **[DEMO.md](DEMO.md)** — open the demo scene and play Route 1 with 3 starters in under a minute.
+**Want to play right now?** Open `scenes/demo.tscn` in Godot and press F5 to play Route 1 with 3 starters.
 
 ## Features
 
@@ -59,9 +59,7 @@ scripts/
 
 ## Roadmap
 
-See [ROADMAP.md](ROADMAP.md) for the full development roadmap. Phases 1-2 (core game + IV system) are complete. Next up: audio, tutorial, more types, multiplayer, and release prep.
-
-See [CHANGELOG.md](CHANGELOG.md) for version history.
+Phases 1-2 (core game + IV system) are complete. Next up: audio, tutorial, more types, multiplayer, and release prep.
 
 ## Requirements
 

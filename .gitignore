@@ -20,3 +20,6 @@ Thumbs.db
 # IDE
 .vscode/
 *.code-workspace
+
+# Auto Claude data directory
+.auto-claude/
